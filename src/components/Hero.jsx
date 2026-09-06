@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TRUST_METRICS } from '../data/stitchData';
-import { LogIn, ArrowRight, Award, Building2, TrendingUp, AlertTriangle, School } from 'lucide-react';
+import { ArrowRight, Award, Building2, TrendingUp, AlertTriangle, School } from 'lucide-react';
 
 export function Hero({ onGetStarted }) {
 
@@ -85,25 +85,25 @@ export function Hero({ onGetStarted }) {
       </div>
 
       {/* Trust Metrics Bar - Centered Layout */}
-      <div className="max-w-container-max mx-auto px-4 sm:px-6 md:px-margin-desktop mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-slate-200/80 w-full max-w-full">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 items-stretch">
+      <div className="max-w-container-max mx-auto px-3 sm:px-6 md:px-margin-desktop mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-slate-200/80 w-full max-w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6 items-stretch">
           {TRUST_METRICS.map((metric, idx) => (
             <div 
               key={idx} 
-              className="flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-xs backdrop-blur-sm min-w-0 w-full overflow-hidden hover:border-emerald-300 hover:shadow-sm transition-all"
+              className="flex flex-col items-center justify-between text-center p-3 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs backdrop-blur-sm min-w-0 w-full hover:border-emerald-300 hover:shadow-sm transition-all"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-bold mb-3 shadow-2xs">
+              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-emerald-50 text-emerald-800 border border-emerald-200/80 flex items-center justify-center font-bold mb-2 sm:mb-3 shadow-2xs shrink-0">
                 {getMetricIcon(metric.icon)}
               </div>
-              <div className="w-full">
-                <div className="text-lg sm:text-2xl font-extrabold text-slate-900 leading-tight">
+              <div className="w-full flex-1 flex flex-col justify-center">
+                <div className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
                   {metric.value}
                 </div>
-                <div className="text-xs sm:text-sm text-slate-600 font-medium leading-snug mt-1 line-clamp-2">
+                <div className="text-[11px] sm:text-xs md:text-sm text-slate-700 font-semibold leading-tight sm:leading-snug mt-1 break-words">
                   {metric.label}
                 </div>
                 {metric.subtext && (
-                  <div className="text-[10px] sm:text-xs text-emerald-800 font-semibold mt-1 truncate">
+                  <div className="text-[10px] sm:text-[11px] text-emerald-800 font-medium leading-tight mt-1.5 break-words">
                     {metric.subtext}
                   </div>
                 )}

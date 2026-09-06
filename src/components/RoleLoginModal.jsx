@@ -182,7 +182,7 @@ export const RoleLoginModal = ({ isOpen, onClose, portal, onLoginSuccess }) => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full mt-2 py-3 px-4 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full mt-2 py-3 px-4 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm hover:shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:hover:scale-100"
             >
               {isLoading ? (
                 <span>Authenticating with National Ayush Gateway...</span>

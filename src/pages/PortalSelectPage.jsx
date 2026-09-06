@@ -12,8 +12,7 @@ import {
   Eye, 
   EyeOff, 
   Check, 
-  CheckCircle2,
-  Sparkles
+  CheckCircle2
 } from 'lucide-react';
 import { PORTALS_DATA, PLATFORM_METADATA } from '../data/portalData';
 
@@ -22,7 +21,6 @@ export const PortalSelectPage = ({
   onLoginSuccess
 }) => {
   const [selectedPortalForAuth, setSelectedPortalForAuth] = useState(null);
-  const [hoveredPortal, setHoveredPortal] = useState(null);
 
   const getPortalIcon = (id) => {
     switch (id) {
@@ -90,20 +88,12 @@ export const PortalSelectPage = ({
         {/* Back to Home Button */}
         <button
           onClick={onBackToHome}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 hover:text-emerald-950 bg-white/90 hover:bg-white border border-slate-200/90 shadow-xs hover:shadow-sm transition-all cursor-pointer group"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 hover:text-emerald-950 bg-white/90 hover:bg-white border border-slate-200/90 shadow-xs hover:shadow-sm hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group"
           aria-label="Back to Home"
         >
           <ArrowLeft className="w-4 h-4 text-emerald-700 group-hover:-translate-x-0.5 transition-transform" />
           <span>Back to Home</span>
         </button>
-
-        {/* Right Status / Organization */}
-        <div className="flex items-center gap-3">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white/80 text-emerald-900 border border-emerald-300 shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Ministry of Ayush · AIIA
-          </span>
-        </div>
       </header>
 
       {/* Main Content Area */}
@@ -111,11 +101,6 @@ export const PortalSelectPage = ({
         
         {/* Page Headings */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-900 border border-emerald-300 shadow-2xs mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
-            National Ayush Professional Ecosystem
-          </span>
-
           <h1 className="font-serif text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
             Select Your Ayush Portal
           </h1>
@@ -125,33 +110,25 @@ export const PortalSelectPage = ({
           </p>
         </div>
 
-        {/* 5 Portal Cards Grid */}
+        {/* 5 Portal Cards Grid with Zoom-in Animation on Hover */}
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6 items-stretch">
           {PORTALS_DATA.map((portal) => {
             const isAdmin = portal.id === 'admin';
-            const isHovered = hoveredPortal === portal.id;
 
             return (
               <div
                 key={portal.id}
-                onMouseEnter={() => setHoveredPortal(portal.id)}
-                onMouseLeave={() => setHoveredPortal(null)}
                 onClick={() => setSelectedPortalForAuth(portal)}
-                className={`group bg-white rounded-3xl p-6 sm:p-7 border transition-all duration-300 flex flex-col justify-between items-center text-center cursor-pointer relative ${
+                className={`group bg-white rounded-3xl p-6 sm:p-7 border transition-all duration-300 ease-out flex flex-col justify-between items-center text-center cursor-pointer relative hover:scale-105 active:scale-95 ${
                   isAdmin 
-                    ? 'border-emerald-600/40 shadow-md hover:shadow-xl hover:border-emerald-600'
-                    : 'border-[#e0ebe4] shadow-sm hover:shadow-xl hover:border-emerald-400'
-                } hover:-translate-y-1.5`}
+                    ? 'border-emerald-600/40 shadow-md hover:shadow-2xl hover:border-emerald-600'
+                    : 'border-[#e0ebe4] shadow-sm hover:shadow-2xl hover:border-emerald-500'
+                }`}
               >
-                {/* Top Subtle Stripe */}
-                <div className={`absolute top-0 left-0 right-0 h-1 rounded-t-3xl transition-opacity duration-200 ${
-                  isHovered ? 'bg-gradient-to-r from-emerald-600 to-teal-500 opacity-100' : 'opacity-0'
-                }`} />
-
                 {/* Card Main Info */}
                 <div className="flex flex-col items-center space-y-3 w-full">
-                  {/* Icon Container */}
-                  <div className="transition-transform duration-300 group-hover:scale-105">
+                  {/* Icon Container with Zoom */}
+                  <div className="transition-transform duration-300 group-hover:scale-110">
                     {getPortalIcon(portal.id)}
                   </div>
 
@@ -171,7 +148,7 @@ export const PortalSelectPage = ({
                   </p>
                 </div>
 
-                {/* Action Button */}
+                {/* Action Button with Zoom-in Animation */}
                 <div className="w-full pt-6">
                   <button
                     type="button"
@@ -179,10 +156,10 @@ export const PortalSelectPage = ({
                       e.stopPropagation();
                       setSelectedPortalForAuth(portal);
                     }}
-                    className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer ${
+                    className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95 shadow-xs hover:shadow-md ${
                       isAdmin
-                        ? 'bg-[#064e3b] text-white hover:bg-[#033629] shadow-sm'
-                        : 'bg-[#e2ece6] text-[#284f41] hover:bg-[#064e3b] hover:text-white border border-transparent'
+                        ? 'bg-emerald-800 text-white hover:bg-emerald-900'
+                        : 'bg-emerald-800 text-white hover:bg-emerald-900'
                     }`}
                   >
                     <span>{portal.buttonText}</span>
@@ -195,14 +172,10 @@ export const PortalSelectPage = ({
         </div>
 
         {/* Footer info banner */}
-        <div className="mt-14 text-center text-xs text-slate-500 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-14 text-center text-xs text-slate-500 flex items-center justify-center">
           <span className="flex items-center gap-1.5 text-slate-600 font-medium">
             <ShieldCheck className="w-4 h-4 text-emerald-700" />
             <span>Ministry of Ayush Role-Based Access Control</span>
-          </span>
-          <span className="text-slate-300 hidden sm:inline">•</span>
-          <span className="font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200/80">
-            Unified Single Sign-On (SSO) & ABHA authentication enabled
           </span>
         </div>
 
@@ -258,19 +231,12 @@ function SpecificRoleLoginPage({ portal, onBack, onSwitchPortal, onLoginSuccess,
       <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between z-10">
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 hover:text-emerald-950 bg-white/90 hover:bg-white border border-slate-200/90 shadow-xs hover:shadow-sm transition-all cursor-pointer group"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-slate-700 hover:text-emerald-950 bg-white/90 hover:bg-white border border-slate-200/90 shadow-xs hover:shadow-sm hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group"
           aria-label="Back to Role Selection"
         >
           <ArrowLeft className="w-4 h-4 text-emerald-700 group-hover:-translate-x-0.5 transition-transform" />
           <span>Back to Role Selection</span>
         </button>
-
-        <div className="flex items-center gap-3">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white/80 text-emerald-900 border border-emerald-300 shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Ministry of Ayush · AIIA
-          </span>
-        </div>
       </header>
 
       {/* Main Specific Role Login Card */}
@@ -375,11 +341,11 @@ function SpecificRoleLoginPage({ portal, onBack, onSwitchPortal, onLoginSuccess,
                 </span>
               </div>
 
-              {/* Submit CTA */}
+              {/* Submit CTA with Zoom-in hover */}
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full mt-2 py-3 px-4 rounded-xl text-xs font-bold bg-[#064e3b] hover:bg-[#033629] text-white shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99] disabled:opacity-75"
+                className="w-full mt-2 py-3 px-4 rounded-xl text-xs font-bold bg-emerald-800 hover:bg-emerald-900 text-white shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:hover:scale-100"
               >
                 {isLoading ? (
                   <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -392,7 +358,7 @@ function SpecificRoleLoginPage({ portal, onBack, onSwitchPortal, onLoginSuccess,
               </button>
             </form>
 
-            {/* Quick Switcher to Other Roles */}
+            {/* Quick Switcher to Other Roles with Zoom-in hover */}
             <div className="pt-4 border-t border-slate-100 text-center">
               <span className="text-[11px] text-slate-500 block mb-2 font-medium">
                 Need to access a different stakeholder console?
@@ -403,7 +369,7 @@ function SpecificRoleLoginPage({ portal, onBack, onSwitchPortal, onLoginSuccess,
                     key={p.id}
                     type="button"
                     onClick={() => onSwitchPortal(p)}
-                    className="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 transition-colors cursor-pointer border border-slate-200"
+                    className="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-900 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer border border-slate-200 shadow-2xs"
                   >
                     {p.title}
                   </button>
@@ -415,7 +381,7 @@ function SpecificRoleLoginPage({ portal, onBack, onSwitchPortal, onLoginSuccess,
 
           {/* Security Banner */}
           <div className="p-3.5 bg-slate-50 border-t border-slate-100 text-center text-[11px] text-slate-500 font-medium">
-            Protected by Ministry of Ayush RBAC & ABHA single sign-on protocols.
+            Protected by Ministry of Ayush RBAC protocols.
           </div>
 
         </div>
