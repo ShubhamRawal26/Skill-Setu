@@ -198,7 +198,7 @@ export const FacultyPortalView = ({ user }) => {
                         <span>Signed & Verified</span>
                       </span>
                     ) : (
-                      'Sign & Verify Dossier'
+                      'Sign & Verify Portfolio'
                     )}
                   </button>
                 </div>

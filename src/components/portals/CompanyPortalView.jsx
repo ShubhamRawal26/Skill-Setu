@@ -246,7 +246,7 @@ export const CompanyPortalView = ({ user }) => {
         <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl p-6 max-w-lg w-full shadow-2xl border border-slate-200 space-y-4">
             <h3 className="text-base font-bold text-slate-900">Post New Ayush Clinical Opening</h3>
-            <p className="text-xs text-slate-500">Candidates will be evaluated through practical competency assessments and verified dossiers.</p>
+            <p className="text-xs text-slate-500">Candidates will be evaluated through practical competency assessments and verified profiles.</p>
             
             <div className="space-y-3">
               <div>

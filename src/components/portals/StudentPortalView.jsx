@@ -182,15 +182,15 @@ export const StudentPortalView = ({ user }) => {
         </button>
 
         <button
-          onClick={() => setActiveTab('dossier')}
+          onClick={() => setActiveTab('portfolio')}
           className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-            activeTab === 'dossier'
+            activeTab === 'portfolio'
               ? 'bg-emerald-800 text-white shadow-xs'
               : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
           }`}
         >
           <Award className="w-4 h-4" />
-          <span>Verified Digital Dossier</span>
+          <span>Verified Digital Portfolio</span>
         </button>
       </div>
 
@@ -361,7 +361,7 @@ export const StudentPortalView = ({ user }) => {
                     </>
                   ) : (
                     <>
-                      <span>Apply with Verified Dossier</span>
+                      <span>Apply with Verified Portfolio</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </>
                   )}
@@ -406,20 +406,20 @@ export const StudentPortalView = ({ user }) => {
         </div>
       )}
 
-      {/* TAB 4: Cryptographic Portfolio Dossier */}
-      {activeTab === 'dossier' && (
+      {/* TAB 4: Cryptographic Portfolio */}
+      {activeTab === 'portfolio' && (
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-soft space-y-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
             <div>
-              <h3 className="text-lg font-extrabold text-slate-900">National Ayush Student Dossier</h3>
+              <h3 className="text-lg font-extrabold text-slate-900">National Ayush Student Portfolio</h3>
               <p className="text-xs text-slate-500">Cryptographically verifiable on the National Ayush Blockchain Node</p>
             </div>
             <button
-              onClick={() => alert('Dossier PDF downloaded with cryptographic SHA-256 signature.')}
+              onClick={() => alert('Portfolio PDF downloaded with cryptographic SHA-256 signature.')}
               className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer shadow-xs"
             >
               <Download className="w-4 h-4" />
-              <span>Download Verified Dossier PDF</span>
+              <span>Download Verified Portfolio PDF</span>
             </button>
           </div>
 

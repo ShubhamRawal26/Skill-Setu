@@ -126,7 +126,7 @@ export function ProfilePage({ onNavigate, currentUser, activePortalId }) {
     reader.readAsDataURL(file);
   };
 
-  const handleDownloadDossier = () => {
+  const handleDownloadPortfolio = () => {
     setDownloadSuccessToast(true);
     setTimeout(() => setDownloadSuccessToast(false), 3500);
   };
@@ -245,7 +245,7 @@ export function ProfilePage({ onNavigate, currentUser, activePortalId }) {
       {downloadSuccessToast && (
         <div className="fixed top-20 right-5 z-50 bg-emerald-800 text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 text-xs font-bold animate-in slide-in-from-top">
           <Download className="w-4 h-4 text-emerald-300" />
-          <span>Verified Scholar Dossier (PDF) generated with SHA-256 seal.</span>
+          <span>Verified Scholar Portfolio (PDF) generated with SHA-256 seal.</span>
         </div>
       )}
 
@@ -269,11 +269,11 @@ export function ProfilePage({ onNavigate, currentUser, activePortalId }) {
 
           <div className="flex gap-2">
             <button
-              onClick={handleDownloadDossier}
+              onClick={handleDownloadPortfolio}
               className="bg-white/80 hover:bg-white text-emerald-950 font-bold text-xs px-3.5 py-2 rounded-xl backdrop-blur-md transition-all flex items-center gap-1.5 border border-emerald-200/60 cursor-pointer shadow-xs"
             >
               <Download className="w-3.5 h-3.5 text-emerald-700" />
-              <span className="hidden sm:inline">Export Dossier (PDF)</span>
+              <span className="hidden sm:inline">Export Portfolio (PDF)</span>
             </button>
             <button
               onClick={() => onNavigate('feed')}
@@ -784,11 +784,11 @@ export function ProfilePage({ onNavigate, currentUser, activePortalId }) {
                     {profileData.verificationHash}
                   </p>
                   <button
-                    onClick={handleDownloadDossier}
+                    onClick={handleDownloadPortfolio}
                     className="w-full py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    <span>Download Cryptographic Dossier</span>
+                    <span>Download Cryptographic Portfolio</span>
                   </button>
                 </div>
 
@@ -935,7 +935,7 @@ export function ProfilePage({ onNavigate, currentUser, activePortalId }) {
                       <div className="flex items-center justify-between pt-2 border-t border-slate-200/60 text-[11px]">
                         <span className="font-mono text-slate-500">DOI: {pub.doi}</span>
                         <button 
-                          onClick={handleDownloadDossier}
+                          onClick={handleDownloadPortfolio}
                           className="text-emerald-800 font-bold hover:underline flex items-center gap-1 cursor-pointer"
                         >
                           <span>Download Pre-print</span>

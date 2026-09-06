@@ -1,24 +1,105 @@
-import React, { useState } from 'react';
-import { User, CheckCircle2, ChevronDown, Flame, Home, BarChart3, Plus, MessageSquare, Building2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  User, 
+  CheckCircle2, 
+  ChevronDown, 
+  ChevronRight, 
+  Home, 
+  BarChart3, 
+  Plus, 
+  MessageSquare, 
+  Building2, 
+  ArrowRight, 
+  LogIn, 
+  Sparkles, 
+  Menu, 
+  X, 
+  Flame 
+} from 'lucide-react';
 
 export function Navbar({ activePage, setActivePage, onOpenReadinessModal, onOpenAuthModal, currentUser }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   const navItems = [
-    { id: 'feed', label: 'Feed' },
-    { id: 'courses', label: 'Courses' },
-    { id: 'opportunities', label: 'Opportunities' },
-    { id: 'skill', label: 'Skill' },
-    { id: 'industry', label: 'Industry' }
+    { id: 'hero', label: 'Home' },
+    { id: 'how-it-works', label: 'How It Works' },
+    { id: 'features', label: 'Features' },
+    { id: 'skills', label: 'Fields & Skills' },
+    { id: 'comparison', label: 'Comparison' }
   ];
 
+  // ScrollSpy: auto-detect which section is in viewport and move highlight pill
+  useEffect(() => {
+    if (activePage !== 'home') return;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const sections = [
+        { id: 'hero', el: document.getElementById('hero') },
+        { id: 'how-it-works', el: document.getElementById('how-it-works') },
+        { id: 'features', el: document.getElementById('features') },
+        { id: 'skills', el: document.getElementById('skills') },
+        { id: 'comparison', el: document.getElementById('comparison') }
+      ];
+
+      if (scrollY < 180) {
+        setActiveSection('hero');
+        return;
+      }
+
+      // Check sections from bottom up to accurately highlight
+      const scrollPos = scrollY + 240;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const item = sections[i];
+        if (item.el) {
+          const top = item.el.offsetTop;
+          if (scrollPos >= top) {
+            setActiveSection(item.id);
+            return;
+          }
+        }
+      }
+      setActiveSection('hero');
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activePage]);
+
   const handleNavClick = (id) => {
-    setActivePage(id);
     setMobileMenuOpen(false);
     setProfileDropdownOpen(false);
-    window.location.hash = id === 'home' ? '' : id;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    if (id === 'hero' || id === 'home') {
+      setActiveSection('hero');
+      if (activePage !== 'home') {
+        setActivePage('home');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    setActiveSection(id);
+    if (activePage !== 'home') {
+      setActivePage('home');
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        setActivePage(id);
+      }
+    }
   };
 
   const userAvatar = currentUser?.avatar || 'AS';
@@ -27,15 +108,15 @@ export function Navbar({ activePage, setActivePage, onOpenReadinessModal, onOpen
 
   return (
     <>
-      <header className="site-nav bg-[#f7faf8]/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/60 shadow-xs transition-all duration-200">
+      <header className="site-nav bg-white/90 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-slate-200/80 shadow-xs transition-all duration-200">
         <div className="max-w-container-max mx-auto px-4 md:px-margin-desktop flex justify-between items-center h-[76px]">
 
-          {/* Brand Logo */}
+          {/* Brand Logo - Restored Original Ayush spa Logo */}
           <div
-            onClick={() => handleNavClick('home')}
+            onClick={() => handleNavClick('hero')}
             className="flex items-center gap-3 cursor-pointer group select-none"
           >
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-800 to-teal-950 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
+            <div className="w-10 h-10 rounded-2xl bg-emerald-800 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
               <span className="material-symbols-outlined text-2xl">spa</span>
             </div>
             <div className="text-left">
@@ -45,21 +126,28 @@ export function Navbar({ activePage, setActivePage, onOpenReadinessModal, onOpen
             </div>
           </div>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 rounded-2xl border border-white/80 bg-white/70 p-1 shadow-xs backdrop-blur-md h-12">
+          {/* Desktop Navigation Links with Auto-Moving Highlight Pill */}
+          <nav className="hidden md:flex items-center gap-1 rounded-2xl border border-slate-200/80 bg-slate-100/70 p-1 shadow-xs backdrop-blur-md h-12 relative">
             {navItems.map((item) => {
-              const isActive = activePage === item.id;
+              const isCurrentActive = activePage === 'home' ? activeSection === item.id : activePage === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`h-full flex items-center px-4 rounded-xl font-body-md text-sm lg:text-[15px] transition-all duration-200 active:scale-95 cursor-pointer ${isActive
-                      ? 'text-primary font-extrabold bg-white shadow-sm ring-1 ring-primary/10'
-                      : 'text-slate-600 hover:text-primary hover:bg-white/80 font-medium'
-                    }`}
+                  className={`relative h-full flex items-center px-4 rounded-xl text-sm lg:text-[15px] transition-colors duration-200 cursor-pointer select-none z-10 font-bold ${
+                    isCurrentActive
+                      ? 'text-emerald-900'
+                      : 'text-slate-600 hover:text-slate-900 font-semibold'
+                  }`}
                 >
-                  {item.label === 'Feed' && <Flame className="w-3.5 h-3.5 text-rose-500 mr-1 animate-pulse" />}
-                  {item.label}
+                  {isCurrentActive && (
+                    <motion.div
+                      layoutId="navbar-active-pill"
+                      className="absolute inset-0 bg-white rounded-xl shadow-sm border border-slate-200/90 -z-10"
+                      transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                    />
+                  )}
+                  <span>{item.label}</span>
                 </button>
               );
             })}
@@ -138,10 +226,10 @@ export function Navbar({ activePage, setActivePage, onOpenReadinessModal, onOpen
             {/* Sign In / Role Selection CTA */}
             <button
               onClick={() => onOpenAuthModal('login')}
-              className="bg-gradient-to-r from-emerald-800 to-teal-900 text-white font-label-sm text-xs font-bold py-2.5 px-5 rounded-xl active:scale-95 hover:shadow-md transition-all flex items-center gap-2 cursor-pointer shrink-0"
+              className="bg-emerald-800 hover:bg-emerald-900 text-white font-label-sm text-xs font-bold py-2.5 px-5 rounded-xl active:scale-95 hover:shadow-md transition-all flex items-center gap-2 cursor-pointer shrink-0"
             >
               <span>Sign In</span>
-              <span className="material-symbols-outlined text-base">arrow_forward</span>
+              <ArrowRight className="w-3.5 h-3.5 text-emerald-300" />
             </button>
           </div>
 
@@ -162,7 +250,7 @@ export function Navbar({ activePage, setActivePage, onOpenReadinessModal, onOpen
             ) : (
               <button
                 onClick={() => onOpenAuthModal('login')}
-                className="px-3.5 py-1.5 rounded-xl bg-emerald-800 text-white text-xs font-bold shadow-xs flex items-center gap-1 cursor-pointer"
+                className="px-3.5 py-1.5 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold shadow-xs flex items-center gap-1 cursor-pointer"
               >
                 <span>Sign In</span>
               </button>
@@ -170,46 +258,44 @@ export function Navbar({ activePage, setActivePage, onOpenReadinessModal, onOpen
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-primary hover:bg-surface-container-low transition-colors"
+              className="p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
               aria-label="Toggle Navigation Menu"
             >
-              <span className="material-symbols-outlined text-2xl">
-                {mobileMenuOpen ? 'close' : 'menu'}
-              </span>
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Drawer Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-b border-outline-variant/30 bg-surface px-4 py-4 space-y-2 animate-fadeIn">
+          <div className="md:hidden border-b border-slate-200 bg-white px-4 py-4 space-y-2 animate-fadeIn">
             {navItems.map((item) => {
-              const isActive = activePage === item.id;
+              const isCurrentActive = activePage === 'home' ? activeSection === item.id : activePage === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`w-full text-left py-3 px-4 rounded-lg font-medium text-base flex justify-between items-center ${isActive
-                      ? 'bg-primary text-on-primary font-semibold'
-                      : 'text-on-surface-variant hover:bg-surface-container-low'
+                  className={`w-full text-left py-3 px-4 rounded-xl font-medium text-base flex justify-between items-center ${isCurrentActive
+                      ? 'bg-emerald-800 text-white font-bold'
+                      : 'text-slate-700 hover:bg-slate-50'
                     }`}
                 >
                   <span>{item.label}</span>
-                  <span className="material-symbols-outlined text-lg">chevron_right</span>
+                  <ChevronRight className="w-4 h-4 opacity-70" />
                 </button>
               );
             })}
 
-            <div className="pt-4 border-t border-outline-variant/20">
+            <div className="pt-4 border-t border-slate-200">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenAuthModal('login');
                 }}
-                className="w-full py-3 bg-slate-900 text-white font-bold rounded-xl text-sm flex items-center justify-center gap-2"
+                className="w-full py-3 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm flex items-center justify-center gap-2"
               >
-                <span className="material-symbols-outlined text-base text-emerald-400">login</span>
-                <span>Portal Sign In</span>
+                <LogIn className="w-4 h-4 text-emerald-300" />
+                <span>Sign In to Portal</span>
               </button>
             </div>
           </div>

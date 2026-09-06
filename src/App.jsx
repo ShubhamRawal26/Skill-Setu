@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
 import AboutEcosystem from './components/AboutEcosystem';
+import Comparison from './components/Comparison';
 import FaqSection from './components/FaqSection';
 import ReadinessModal from './components/ReadinessModal';
 import Footer from './components/Footer';
@@ -51,7 +52,13 @@ export function App() {
           setCurrentUser(portalCfg?.profileUser || null);
         }
         setActivePage('dashboard');
-      } else if (['features', 'about', 'opportunities', 'how-it-works', 'skill', 'industry', 'courses', 'feed', 'profile', 'messages'].includes(hash)) {
+      } else if (['how-it-works', 'features', 'skills', 'comparison'].includes(hash)) {
+        setActivePage('home');
+        setTimeout(() => {
+          const el = document.getElementById(hash);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else if (['about', 'opportunities', 'skill', 'industry', 'courses', 'feed', 'profile', 'messages'].includes(hash)) {
         setActivePage(hash);
       } else if (!hash || hash === 'home') {
         if (currentUser) {
@@ -65,7 +72,7 @@ export function App() {
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+  }, [currentUser]);
 
   const handleOpenAuth = () => {
     setActivePage('login');
@@ -120,6 +127,14 @@ export function App() {
       setActivePage('dashboard');
       window.location.hash = `dashboard-${activePortalId}`;
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (['how-it-works', 'features', 'skills', 'comparison'].includes(page)) {
+      if (activePage !== 'home') {
+        setActivePage('home');
+      }
+      setTimeout(() => {
+        const el = document.getElementById(page);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     } else {
       setActivePage(page);
       window.location.hash = page === 'home' ? '' : page;
@@ -196,6 +211,7 @@ export function App() {
             <HowItWorks onOpenReadinessModal={() => setIsReadinessModalOpen(true)} />
             <Features onOpenReadinessModal={() => setIsReadinessModalOpen(true)} />
             <AboutEcosystem onOpenReadinessModal={() => setIsReadinessModalOpen(true)} />
+            <Comparison />
             <FaqSection
               onOpenReadinessModal={() => setIsReadinessModalOpen(true)}
               onOpenAuthModal={handleOpenAuth}

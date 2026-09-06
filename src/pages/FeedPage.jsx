@@ -363,7 +363,7 @@ export function FeedPage({ onNavigate, currentUser, openCreatePostModal, onClose
       location: 'Mumbai / Silvassa Plant',
       openings: '10 Openings',
       eligibility: 'BAMS / B.Pharm / Life Sciences',
-      skillsRequired: ['USFDA Guidelines', 'EU Directives', 'Dossier Preparation', 'Stability Testing'],
+      skillsRequired: ['USFDA Guidelines', 'EU Directives', 'Regulatory Documentation', 'Stability Testing'],
       content: 'Learn export compliance, US FDA cGMP (21 CFR Part 111), EU Herbal Directives, heavy metal limits validation, and stability testing protocols.',
       tags: ['CharakPharma', 'AyushExports', 'RegulatoryAffairs', 'GMPCompliance'],
       image: 'https://images.unsplash.com/photo-1563213126-a4273aed2016?auto=format&fit=crop&w=1200&q=80',
@@ -1190,7 +1190,7 @@ export function FeedPage({ onNavigate, currentUser, openCreatePostModal, onClose
               <h3 className="font-bold text-xs text-slate-900 uppercase tracking-wider">Fast-Track ATS</h3>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed mb-3">
-              Recruiters from Dabur, Himalaya, and Patanjali review candidate dossiers with verified 80%+ scores directly from this board.
+              Recruiters from Dabur, Himalaya, and Patanjali review candidate profiles with verified 80%+ scores directly from this board.
             </p>
             <button
               onClick={() => setActiveFilter('Internship')}
@@ -1294,7 +1294,7 @@ export function FeedPage({ onNavigate, currentUser, openCreatePostModal, onClose
               <div className="flex items-center justify-between mb-1.5">
                 <span className="text-[10px] font-bold uppercase text-emerald-900 tracking-wider flex items-center gap-1">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
-                  SkillSetu Dossier Attached
+                  SkillSetu Portfolio Attached
                 </span>
                 <span className="text-xs font-bold text-emerald-900 bg-white px-2 py-0.5 rounded border border-emerald-300">
                   Score: 88%

@@ -488,7 +488,7 @@ export function FacultyPage({ onNavigate, onOpenReadinessModal, currentUser }) {
                             <span>Signed & Verified</span>
                           </span>
                         ) : (
-                          'Sign & Verify Dossier (Cryptographic)'
+                          'Sign & Verify Portfolio (Cryptographic)'
                         )}
                       </button>
                     </div>

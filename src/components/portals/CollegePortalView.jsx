@@ -51,7 +51,7 @@ export const CollegePortalView = ({ user }) => {
           className="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold rounded-xl shadow-xs transition-all cursor-pointer"
         >
           <FileCheck className="w-4 h-4" />
-          <span>Generate NAAC Criteria III/V Dossier</span>
+          <span>Generate NAAC Criteria III/V Report</span>
         </button>
       </div>
 

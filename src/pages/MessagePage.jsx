@@ -64,7 +64,7 @@ export function MessagePage({ onNavigate, currentUser }) {
       unreadCount: 0,
       lastTime: '2 days ago',
       messages: [
-        { id: 401, sender: 'them', text: 'Your verified SkillSetu Scholar Dossier has been upgraded to Level 3.', time: '2 days ago' }
+        { id: 401, sender: 'them', text: 'Your verified SkillSetu Scholar Profile has been upgraded to Level 3.', time: '2 days ago' }
       ]
     }
   ]);

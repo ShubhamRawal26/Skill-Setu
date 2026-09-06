@@ -53,260 +53,167 @@ export const AYUSH_DISCIPLINES = [
 export const HOW_IT_WORKS_STEPS = [
   {
     step: '01',
-    title: 'Visual 6-Axis Competency Radar',
-    subtitle: 'Maps clinical and industrial skills like Schedule T GMP and HPTLC to replace flat text resumes.',
-    icon: 'radar',
-    badge: 'Phase 1: Radar',
+    title: 'Visit the Portal',
+    subtitle: 'Student arrives on the clean, accessible SkillSetu platform.',
+    icon: 'travel_explore',
+    badge: 'Step 1: Open Portal',
     color: 'emerald',
-    description: 'Students benchmark their practical competencies across 6 core industry axes: Schedule T GMP, HPTLC Fingerprinting, Clinical Diagnosis & Nadi Pariksha, Dravyaguna Pharmacology, Rasa Shastra, and Good Clinical Practices (GCP).',
+    description: 'Any Ayush student from any city or village can open SkillSetu on any mobile phone or computer with fast, simple, zero-confusion navigation.',
     highlights: [
-      'Visual 6-Axis diagnostic mapping',
-      'Dynamic testing with strict per-item timer',
-      'Replaces unverified text resumes with real competency metrics'
+      'Accessible on any mobile or desktop device',
+      'Simple, clear language designed for all students',
+      'Instant access without complicated steps'
     ],
-    benchmarkMetric: { label: 'Deficit Detection', value: 'Instant 6-Axis Plot' }
+    benchmarkMetric: { label: 'Platform Access', value: '100% Free & Open' }
   },
   {
     step: '02',
-    title: 'Automated Skill-Gap Analysis',
-    subtitle: 'Identifies what practical skills a student lacks compared to current Ayush industry needs.',
-    icon: 'analytics',
-    badge: 'Phase 2: Gap Analysis',
+    title: 'Select Role & Sign In',
+    subtitle: 'Choose Student role and log in with your credentials.',
+    icon: 'login',
+    badge: 'Step 2: Quick Sign In',
     color: 'teal',
-    description: 'Directly addresses the 55%+ practical skill deficit reported by FICCI & HSSC by pinpointing exact cleanroom, assay, and clinical protocol gaps before application.',
+    description: 'Select "Student" and sign in securely with your student email, ABHA ID, or college roll number to access your personal dashboard.',
     highlights: [
-      'Standardized against 12 HSSC NQR Qualification Packs',
-      'Curriculum-to-industry discrepancy detection',
-      'Instant generation of tailored remediation roadmap'
+      'One-click role selection (Student / College / Company)',
+      'Fast and secure login with OTP or password',
+      'Instant access to your personalized learning workspace'
     ],
-    benchmarkMetric: { label: 'Accuracy Index', value: '94.8% Curricular Match' }
+    benchmarkMetric: { label: 'Sign In Time', value: 'Under 30 Seconds' }
   },
   {
     step: '03',
-    title: 'Targeted 15-Minute Micro-Bridge Courses',
-    subtitle: 'Suggests short training modules so students can improve weak skills before applying.',
-    icon: 'biotech',
-    badge: 'Phase 3: Bridge',
-    color: 'amber',
-    description: 'Interactive 15-minute micro-courses built directly by Ayush pharmaceutical R&D labs and industry preceptors covering Schedule T GMP, HPTLC standardization, and clinical protocols.',
+    title: 'Give Skill Test & Know Skill Gap',
+    subtitle: 'Take practical tests and see your exact strengths and missing skills.',
+    icon: 'quiz',
+    badge: 'Step 3: Test & Gap Check',
+    color: 'emerald',
+    description: 'Complete short, practical assessments on clinical diagnosis, Schedule T GMP, and herb assays. The system instantly reveals your exact skill gap.',
     highlights: [
-      '15-minute bite-sized practical sprints',
-      'Built and verified by Ayush pharma R&D leaders',
-      'Unlocks verified digital badges upon completion'
+      'Short, timed practical assessment questions',
+      'Identifies exact clinical & lab skill gaps',
+      'Clear, visual readiness score report'
     ],
-    benchmarkMetric: { label: 'Course Format', value: '15-Min Focused Sprints' }
+    benchmarkMetric: { label: 'Gap Detection', value: 'Instant Analysis' }
   },
   {
     step: '04',
-    title: 'Smart Matching & 1-Click Apply',
-    subtitle: 'Automatically matches eligible students with internships and jobs across 7,345+ Ayush companies.',
-    icon: 'verified',
-    badge: 'Phase 4: 1-Click Apply',
-    color: 'emerald',
-    description: 'Frictionless 1-click application system with automated skill threshold filtering. Slashes hiring cycles from 10 weeks to 6 weeks for 42,000+ BAMS graduates.',
+    title: 'Apply for Jobs & See Match Score',
+    subtitle: 'Check job requirements, your match score, and see where skills are missing.',
+    icon: 'fact_check',
+    badge: 'Step 4: Smart Match',
+    color: 'teal',
+    description: 'Browse verified openings in top Ayush hospitals and pharma companies. See your exact % matching score and clear highlights of any missing skill.',
     highlights: [
-      '1-click apply with 100% SHA-256 verifiable portfolio',
-      'Direct talent pipeline to India\'s 7,345+ licensed pharmacies',
-      'Eliminates 900,000+ paper A4 sheets annually'
+      'Instant Match Score (e.g. 88% Match)',
+      'Clear alert showing which skill is missing for the role',
+      'Transparent job requirements with zero guesswork'
     ],
-    benchmarkMetric: { label: 'Placement Speedup', value: '40% Faster (6 Wks)' }
+    benchmarkMetric: { label: 'Matching Accuracy', value: 'Real-Time Score' }
+  },
+  {
+    step: '05',
+    title: 'Get Automatic Course Suggestions',
+    subtitle: 'Platform recommends 15-minute bridge courses for missing skills.',
+    icon: 'school',
+    badge: 'Step 5: Bridge Courses',
+    color: 'emerald',
+    description: 'SkillSetu automatically recommends short 15-minute practical bridge courses co-created with top Ayush pharma companies to quickly fix your missing skills.',
+    highlights: [
+      '15-minute bite-sized practical learning modules',
+      'Co-developed by top Ayush hospitals & manufacturers',
+      'Learn only the exact skills you need for the job'
+    ],
+    benchmarkMetric: { label: 'Course Duration', value: '15-Minute Sprints' }
+  },
+  {
+    step: '06',
+    title: 'Skill Up & Get Placed!',
+    subtitle: 'Improve your score, earn verified badges, and get hired.',
+    icon: 'verified',
+    badge: 'Step 6: Direct Placement',
+    color: 'emerald',
+    description: 'Complete your bridge training, boost your readiness score to 90%+, and get directly hired by 7,345+ licensed Ayush hospitals and pharma units.',
+    highlights: [
+      'Instant score upgrade & verified digital badge',
+      '100% verified digital portfolio',
+      'Direct hiring with top Ayush recruiters without middlemen'
+    ],
+    benchmarkMetric: { label: 'Placement Rate', value: 'Direct 1-Click Apply' }
   }
 ];
 
 export const PLATFORM_FEATURES = [
   {
-    id: 'centralized-platform',
-    title: 'Centralized Ayush Web Platform',
-    icon: 'hub',
-    description: 'Single portal connecting students, colleges, and companies for standardized skill testing, gap analysis, and verified hiring.',
-    category: 'Core Infrastructure',
-    badge: 'Unified Ecosystem'
+    id: 'skill-testing-gap',
+    title: 'Practical Skill Assessment',
+    icon: 'quiz',
+    description: 'Simple, timed practical tests that measure real-world clinical diagnosis, lab assay, and pharma manufacturing skills.',
+    badge: 'Practical Tests'
   },
   {
-    id: 'skill-testing-gap',
-    title: 'Skill Testing & Gap Analysis',
-    icon: 'quiz',
-    description: 'Dynamic diagnostic tests with strict per-item timer to identify exact practical skills a student lacks compared to industry needs.',
-    category: 'Assessment',
-    badge: 'Timed Engine'
+    id: 'gap-detection',
+    title: 'Instant Skill-Gap Report',
+    icon: 'analytics',
+    description: 'Clear, easy-to-understand report that highlights exactly what you know and what specific skills you need to learn.',
+    badge: 'Gap Analysis'
   },
   {
     id: 'micro-bridge-courses',
-    title: 'Targeted Bridge Courses',
+    title: '15-Minute Bridge Modules',
     icon: 'school',
-    description: '15-minute practical training modules built by pharma R&D so students can improve weak skills before applying for roles.',
-    category: 'Remediation',
+    description: 'Short, focused training modules built by pharma R&D leaders so you can quickly learn missing skills before applying.',
     badge: '15-Min Modules'
   },
   {
     id: 'smart-internship-matching',
-    title: 'Smart Internship Matching',
-    icon: 'handshake',
-    description: 'Automatically matches eligible candidates with internships and entry-level jobs across India\'s 7,345+ licensed Ayush manufacturers.',
-    category: 'Placements',
-    badge: 'Auto-Match'
+    title: 'Job Match Score & Alerts',
+    icon: 'fact_check',
+    description: 'See your real-time matching percentage for every job and get instant alerts showing where skills are missing.',
+    badge: 'Match Score'
   },
   {
-    id: 'competency-radar',
-    title: 'Visual 6-Axis Competency Radar',
-    icon: 'radar',
-    description: 'Maps clinical and industrial skills like Schedule T GMP and HPTLC fingerprinting to replace flat text resumes with verified proof-of-work.',
-    category: 'Credibility',
-    badge: '6-Axis Visual'
-  },
-  {
-    id: 'app-first-mobile',
-    title: 'App-First Mobile Interface',
-    icon: 'smartphone',
-    description: 'Built with a native mobile UI, featuring a bottom navigation bar and zero web clutter for smooth access on any device across rural and urban India.',
-    category: 'Accessibility',
-    badge: 'PWA Mobile-First'
+    id: 'direct-placements',
+    title: 'Direct Industry Placements',
+    icon: 'work',
+    description: 'Direct 1-click job and internship applications connecting students directly to 7,345+ verified Ayush hospitals and pharma companies.',
+    badge: 'Direct Hiring'
   }
 ];
 
 /**
- * Research-Backed Benchmark: Doximity & Handshake vs SkillSetu
- * Integrating features, limitations, and the unified Ayush opportunity.
- */
-export const DOXIMITY_HANDSHAKE_BENCHMARK = {
-  keyUsp: "Learning + Mentorship + Research + Internships/Jobs + Networking — all within one Ayurveda-focused student ecosystem.",
-  platforms: [
-    {
-      id: "doximity",
-      name: "Doximity",
-      tagline: "Healthcare Professional Network",
-      targetAudience: "Practicing Allopathic Doctors & Physicians",
-      strengths: [
-        "Professional profile & verified clinician identity",
-        "Medical news & specialty-focused updates",
-        "Secure communication & clinical workflows",
-        "Telemedicine & virtual care tools",
-        "Physician career opportunities"
-      ],
-      limitations: [
-        "Healthcare-professional focused: Not suited to the student journey",
-        "Limited student ecosystem: No academic projects, internships, or college collaboration",
-        "No structured learning: Lacks courses, bridge sprints, or academic communities",
-        "Zero Ayush specialization: Only conventional allopathic medicine",
-        "Narrow audience: Excludes student-to-industry transition"
-      ]
-    },
-    {
-      id: "handshake",
-      name: "Handshake",
-      tagline: "University Career & Recruitment Ecosystem",
-      targetAudience: "General College Students & Corporate Recruiters",
-      strengths: [
-        "Job & internship search across campus networks",
-        "Personalized career recommendations",
-        "Employer networking & career fairs",
-        "Career advice, videos & AI career tools",
-        "Student digital profiles & resumes"
-      ],
-      limitations: [
-        "Career-focused, not education-focused: No specialized academic learning",
-        "Zero Ayurveda specialization: No classical texts, herbs, Panchakarma, or clinical research",
-        "Restricted access: Student-employer interactions depend on university approvals",
-        "Hidden opportunities: Not every job is visible to every student due to institutional silos",
-        "Third-party recruiter risk: Suspicious recruiters & off-platform communication risks",
-        "Limited domain mentorship: No long-term mentorship from clinical experts"
-      ]
-    },
-    {
-      id: "skillsetu",
-      name: "SkillSetu",
-      tagline: "Unified National Ayush Student & Practitioner Platform",
-      targetAudience: "Ayush Scholars, Vaidyas, Colleges, and 7,345+ Licensed Pharma Units",
-      strengths: [
-        "Unified Key USP: Learning + Mentorship + Research + Jobs + Networking in one ecosystem",
-        "Ayurveda-Specific Learning: Classical texts, Panchakarma, Schedule T GMP, botanical assays",
-        "Domain Mentorship: Direct access to certified Ayurvedic doctors, senior Vaidyas & researchers",
-        "Ayush Research Hub: Clinical trial discovery, case study logs, AIIA & CCRAS alignment",
-        "Zero Recruiter Risk: Direct 1-click verified hiring with licensed Ayush pharma units",
-        "Objective 6-Axis Visual Radar: Standardized competency testing & verified digital dossiers"
-      ],
-      limitations: []
-    }
-  ],
-  differentiationPillars: [
-    {
-      id: 'learning',
-      title: 'Ayurveda-Specific Learning',
-      subtitle: 'Structured Study & Classical Repositories',
-      description: 'Classical textbooks (Charaka & Sushruta Samhita), herbal pharmacology (Dravyaguna), Rasashastra, Panchakarma protocols, and 15-minute Schedule T GMP sprints.',
-      icon: 'menu_book',
-      badge: 'Academic & Sprints',
-      color: 'from-emerald-800 to-teal-900',
-      stats: '500+ Curated Modules'
-    },
-    {
-      id: 'mentorship',
-      title: 'Doctor & Vaidya Mentorship',
-      subtitle: 'Certified Vaidyas, Teachers & Researchers',
-      description: 'Connect students directly with experienced Ayurvedic doctors, institutional faculty, clinical researchers, and master Vaidyas for clinical guidance.',
-      icon: 'supervisor_account',
-      badge: '1-on-1 Guidance',
-      color: 'from-teal-800 to-emerald-900',
-      stats: '1,200+ Verified Mentors'
-    },
-    {
-      id: 'research',
-      title: 'Clinical Research & Publications',
-      subtitle: 'Case Studies, Trials & Publication Discovery',
-      description: 'Document real patient case studies, participate in multi-center clinical trials, collaborate with AIIA and CCRAS research projects, and explore publications.',
-      icon: 'biotech',
-      badge: 'AIIA Aligned',
-      color: 'from-cyan-900 to-teal-950',
-      stats: '350+ Clinical Projects'
-    },
-    {
-      id: 'jobs',
-      title: 'Domain Internships & Jobs',
-      subtitle: 'Zero Recruiter Risk & Direct 1-Click Hiring',
-      description: 'Directly verified internships and apprenticeships with 7,345+ licensed Ayush drug manufacturers, clinical wellness resorts, and hospital chains without third-party intermediaries.',
-      icon: 'verified_user',
-      badge: 'Direct Industry Hiring',
-      color: 'from-emerald-900 to-teal-950',
-      stats: '2,400+ Active Roles'
-    },
-    {
-      id: 'networking',
-      title: 'Healthcare & Alumni Communities',
-      subtitle: 'Students, Faculty, Practitioners & Alumni',
-      description: 'An exclusive professional community for Ayush medicine, uniting students, practicing physicians, pharmaceutical R&D leaders, and academic alumni in one verified ecosystem.',
-      icon: 'hub',
-      badge: 'Multi-Stakeholder Network',
-      color: 'from-teal-900 to-emerald-950',
-      stats: '42,000+ Ayush Network'
-    },
-    {
-      id: 'resources',
-      title: 'Ayurveda-Specific Resources',
-      subtitle: 'Herbs, Classical Texts & Clinical Assays',
-      description: 'Dedicated botanical extraction repositories, HPTLC standardization data, pulse diagnosis (Nadi Pariksha) protocols, and classical formulation monographs.',
-      icon: 'local_pharmacy',
-      badge: 'Botanical & Clinical Assays',
-      color: 'from-emerald-950 to-teal-900',
-      stats: '1,500+ Plant Monographs'
-    }
-  ]
-};
-
-/**
- * Industry Comparison Matrix
- * Comprehensive Ayush platform comparison against general portals (Doximity, Handshake, LinkedIn, Internshala).
+ * 3-Platform Comparison Matrix: SkillSetu vs LinkedIn vs Internshala
+ * 4 High-Impact Features
  */
 export const SYSTEM_COMPARISON_DATA = [
-  { feature: 'Job & Internship Discovery', skillsetu: true, doximity: true, handshake: true, linkedin: true, internshala: true },
-  { feature: 'Student Academic & Clinical Learning', skillsetu: true, doximity: false, handshake: false, linkedin: false, internshala: false },
-  { feature: 'Ayurveda Classical Texts & Herb Repositories', skillsetu: true, doximity: false, handshake: false, linkedin: false, internshala: false },
-  { feature: 'Domain-Specific Vaidya & Doctor Mentorship', skillsetu: true, doximity: false, handshake: false, linkedin: false, internshala: false },
-  { feature: 'Clinical Case Study & Research Collaboration', skillsetu: true, doximity: false, handshake: false, linkedin: false, internshala: false },
-  { feature: 'Schedule T GMP Compliance Benchmarks', skillsetu: true, doximity: false, handshake: false, linkedin: false, internshala: false },
-  { feature: 'Visual 6-Axis Competency Radar', skillsetu: true, doximity: false, handshake: false, linkedin: false, internshala: false },
-  { feature: 'Zero Third-Party Recruiter Risk (Verified Units Only)', skillsetu: true, doximity: true, handshake: false, linkedin: false, internshala: false },
-  { feature: 'Verified Digital Clinical Dossier', skillsetu: true, doximity: true, handshake: false, linkedin: false, internshala: false },
-  { feature: 'Industry-College Analytics & Collaboration Hub', skillsetu: true, doximity: false, handshake: true, linkedin: false, internshala: false },
+  {
+    feature: 'Ayush-Specific Practical Skill Testing & Gap Analysis',
+    skillsetu: true,
+    linkedin: false,
+    internshala: false,
+    note: 'Dynamic testing for Schedule T GMP, Nadi Pariksha, and HPTLC assays'
+  },
+  {
+    feature: 'Real-Time Job Match Score with Missing Skill Alerts',
+    skillsetu: true,
+    linkedin: false,
+    internshala: false,
+    note: 'Shows exact % match and identifies what skills are missing before applying'
+  },
+  {
+    feature: '15-Minute Bridge Courses to Fix Missing Skills',
+    skillsetu: true,
+    linkedin: false,
+    internshala: false,
+    note: 'Targeted micro-modules co-developed with Ayush pharma R&D'
+  },
+  {
+    feature: 'Direct Placements with 7,345+ Ayush Hospitals & Pharma',
+    skillsetu: true,
+    linkedin: false,
+    internshala: false,
+    note: 'Direct talent pipeline with verified licensed Ayush employers'
+  }
 ];
 
 export const SAMPLE_STUDENTS = [
@@ -316,7 +223,7 @@ export const SAMPLE_STUDENTS = [
     degree: 'BAMS Final Year Scholar',
     institution: 'National Institute of Ayurveda (NIA), Jaipur',
     readinessScore: 88,
-    verifiedStatus: 'Verified Ayush Dossier',
+    verifiedStatus: 'Verified Ayush Profile',
     avatar: priyaAvatar,
     assessments: [
       { name: 'Schedule T GMP Compliance', score: '94/100', icon: 'verified', status: 'Passed' },
@@ -330,7 +237,7 @@ export const SAMPLE_STUDENTS = [
     degree: 'BAMS Graduate Trainee',
     institution: 'Government Ayurveda College, Thiruvananthapuram',
     readinessScore: 78,
-    verifiedStatus: 'Verified Ayush Dossier',
+    verifiedStatus: 'Verified Ayush Profile',
     avatar: kabirAvatar,
     assessments: [
       { name: 'Dravyaguna Herbology', score: '85/100', icon: 'local_pharmacy', status: 'Completed' },
@@ -368,7 +275,7 @@ export const FAQ_ITEMS = [
   {
     id: 'faq-2',
     question: 'How does the 3-Phase Modular Pipeline work?',
-    answer: 'SkillSetu executes a 3-phase progression: (1) Radar: Visual 6-axis competency radar and timed diagnostic assessment; (2) Bridge: 15-minute targeted micro-courses built by pharma R&D to close practical gaps; and (3) 1-Click Apply: Frictionless job and internship applications using verified digital dossiers.'
+    answer: 'SkillSetu executes a 3-phase progression: (1) Radar: Visual 6-axis competency radar and timed diagnostic assessment; (2) Bridge: 15-minute targeted micro-courses built by pharma R&D to close practical gaps; and (3) 1-Click Apply: Frictionless job and internship applications using verified digital profiles.'
   },
   {
     id: 'faq-3',
